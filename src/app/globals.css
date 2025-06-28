@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "katex/dist/katex.min.css";
 
 :root {
   --background: #ffffff;
@@ -8,8 +9,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +22,468 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom animations for smooth header appearance */
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-down-fade {
+  animation: slideDownFade 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up-delay {
+  animation: fadeInUp 0.5s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* Staggered card animations */
+.animate-card-slide-in {
+  animation: cardSlideIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-card-slide-in-1 {
+  animation: cardSlideIn 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-card-slide-in-2 {
+  animation: cardSlideIn 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-card-slide-in-3 {
+  animation: cardSlideIn 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-card-slide-in-4 {
+  animation: cardSlideIn 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-card-slide-in-5 {
+  animation: cardSlideIn 0.6s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+/* Enhanced table styling for markdown */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: rgba(31, 41, 55, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(75, 85, 99, 0.6);
+}
+
+.prose thead {
+  background: rgba(31, 41, 55, 0.9);
+}
+
+.prose th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: rgb(229, 231, 235);
+  border-bottom: 2px solid rgba(75, 85, 99, 0.8);
+  border-right: 1px solid rgba(75, 85, 99, 0.4);
+}
+
+.prose th:last-child {
+  border-right: none;
+}
+
+.prose td {
+  padding: 12px 16px;
+  color: rgb(209, 213, 219);
+  border-bottom: 1px solid rgba(75, 85, 99, 0.4);
+  border-right: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.prose td:last-child {
+  border-right: none;
+}
+
+.prose tbody tr:hover {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+.prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Force dark theme for all prose elements */
+.prose {
+  background: transparent !important;
+  color: rgb(209, 213, 219) !important;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: rgb(229, 231, 235) !important;
+}
+
+.prose p, .prose li {
+  color: rgb(209, 213, 219) !important;
+}
+
+.prose strong {
+  color: rgb(229, 231, 235) !important;
+}
+
+.prose code {
+  background: rgba(55, 65, 81, 0.8) !important;
+  color: rgb(229, 231, 235) !important;
+}
+
+.prose hr {
+  border-color: rgba(75, 85, 99, 0.6) !important;
+}
+
+/* Enhanced emoji support */
+.prose img[src*="emoji"] {
+  display: inline;
+  margin: 0;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -0.1em;
+}
+
+/* Task list styling */
+.prose input[type="checkbox"] {
+  margin-right: 0.5rem;
+  margin-left: -1.5rem;
+  accent-color: #3b82f6;
+  transform: scale(1.2);
+}
+
+.prose li:has(input[type="checkbox"]) {
+  list-style: none !important;
+  position: relative;
+}
+
+/* Regular list items should have bullets */
+.prose li:not(:has(input[type="checkbox"])) {
+  list-style: inherit !important;
+}
+
+/* Enhanced blockquotes */
+.prose blockquote {
+  border-left: 4px solid #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+  margin: 1.5rem 0 !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+.prose blockquote p {
+  margin: 0.5rem 0 !important;
+}
+
+/* Enhanced code blocks */
+.prose pre {
+  background: rgba(17, 24, 39, 0.95) !important;
+  border: 1px solid rgba(75, 85, 99, 0.6) !important;
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  overflow-x: auto !important;
+  margin: 1.5rem 0 !important;
+}
+
+.prose pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: rgb(229, 231, 235) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Inline code enhancement */
+.prose code {
+  background: rgba(55, 65, 81, 0.8) !important;
+  color: rgb(229, 231, 235) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 6px !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+}
+
+.prose pre code {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Enhanced headings */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: rgb(229, 231, 235) !important;
+  scroll-margin-top: 2rem !important;
+}
+
+.prose h1 {
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  margin: 2rem 0 1.5rem 0 !important;
+  line-height: 1.2 !important;
+}
+
+.prose h2 {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  margin: 2rem 0 1rem 0 !important;
+  line-height: 1.3 !important;
+}
+
+.prose h3 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin: 1.5rem 0 0.75rem 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Enhanced lists */
+.prose ul, .prose ol {
+  margin: 1rem 0 !important;
+  padding-left: 1.5rem !important;
+}
+
+.prose ul {
+  list-style-type: disc !important;
+}
+
+.prose ol {
+  list-style-type: decimal !important;
+}
+
+.prose ul ul {
+  list-style-type: circle !important;
+}
+
+.prose ul ul ul {
+  list-style-type: square !important;
+}
+
+.prose li {
+  margin: 0.5rem 0 !important;
+  line-height: 1.6 !important;
+  display: list-item !important;
+}
+
+.prose li > ul, .prose li > ol {
+  margin: 0.5rem 0 !important;
+}
+
+/* Fix for nested lists */
+.prose li > p {
+  margin: 0 !important;
+}
+
+/* Ensure list markers are visible */
+.prose ul li::marker,
+.prose ol li::marker {
+  color: rgb(156, 163, 175) !important;
+  font-weight: bold !important;
+}
+
+/* Handle emoji-prefixed content that should look like lists */
+.prose p:has(> strong:first-child) {
+  margin: 0.75rem 0 !important;
+  padding-left: 1rem !important;
+  position: relative !important;
+}
+
+/* Style for emoji-prefixed paragraphs to look more like list items */
+.prose p > strong:first-child::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 0.75rem;
+  width: 4px;
+  height: 4px;
+  background: rgb(156, 163, 175);
+  border-radius: 50%;
+  display: none; /* Only show for non-emoji starts */
+}
+
+/* Better spacing for emoji-heavy content */
+.prose p:has(> strong:first-child:not(:only-child)) {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Improve readability of bold content with emojis */
+.prose strong {
+  color: rgb(229, 231, 235) !important;
+  font-weight: 600 !important;
+}
+
+/* Enhanced links */
+.prose a {
+  color: #60a5fa !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+.prose a:hover {
+  color: #93c5fd !important;
+  text-decoration: underline !important;
+}
+
+/* Enhanced images */
+.prose img {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* Math styling */
+.prose .katex {
+  font-size: 1.1em !important;
+}
+
+.prose .katex-display {
+  margin: 1.5rem 0 !important;
+  text-align: center !important;
+}
+
+/* Horizontal rules */
+.prose hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(75, 85, 99, 0.8), transparent) !important;
+  margin: 2rem 0 !important;
+  border-radius: 1px !important;
+}
+
+/* Ensure emojis render properly */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  letter-spacing: -0.025em;
+}
+
+.prose p, .prose li, .prose td, .prose th {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Enhanced readability for code */
+.prose code, .prose pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-feature-settings: 'calt' 1, 'liga' 1;
+}
+
+/* Search modal animations */
+@keyframes slide-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.slide-in-from-top-4 {
+  animation: slide-in-from-top 0.2s ease-out;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* File navigation animations */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateX(6px);
+  }
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+/* Custom scrollbar for file navigation */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 85, 99, 0.6) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.6);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(75, 85, 99, 0.8);
 }
