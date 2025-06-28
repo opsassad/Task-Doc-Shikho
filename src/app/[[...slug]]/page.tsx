@@ -26,12 +26,8 @@ if (!fs.existsSync(docsDirectory)) {
 function ProjectCard({ item, index = 0 }: { item: { path: string, type: 'file' | 'folder', title: string }, index?: number }) {
   const animationClass = `animate-card-slide-in${index > 0 && index <= 5 ? `-${index}` : ''}`;
   
-  // Properly encode each path segment to handle spaces and special characters
-  const pathSegments = item.path.split('/').map(segment => encodeURIComponent(segment))
-  const encodedPath = pathSegments.join('/')
-  
   return (
-    <Link href={`/${encodedPath}`}>
+    <Link href={`/${item.path}`}>
       <div className={`group relative bg-gray-800/60 backdrop-blur-xl border border-gray-700/40 rounded-3xl p-6 mb-3 hover:bg-gray-800/80 hover:border-gray-600/60 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-black/30 hover:scale-[1.02] active:scale-[0.98] overflow-hidden ${animationClass}`}>
         
         {/* Liquid morphing background */}
@@ -157,7 +153,7 @@ function getSiblingFiles(slug: string[]): Array<{path: string, title: string, is
         : fileName
       
       siblings.push({
-        path: fullPath.split('/').map(segment => encodeURIComponent(segment)).join('/'),
+        path: fullPath,
         title: fileName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
         isActive: fileName === currentFile
       })
@@ -211,15 +207,15 @@ export async function generateStaticParams() {
       const relativePath = basePath ? `${basePath}/${file}` : file
       
       if (stat.isDirectory()) {
-        // Add folder path - encode each segment
-        const segments = relativePath.split('/').map(segment => encodeURIComponent(segment))
+        // Add folder path - use raw segments for static generation
+        const segments = relativePath.split('/')
         paths.push(segments)
         // Recursively get paths from subdirectories
         paths.push(...getAllPaths(filePath, relativePath))
       } else if (file.endsWith('.md') || file.endsWith('.mdx')) {
-        // Add file path without extension - encode each segment
+        // Add file path without extension - use raw segments for static generation
         const pathWithoutExt = relativePath.replace(/\.mdx?$/, '')
-        const segments = pathWithoutExt.split('/').map(segment => encodeURIComponent(segment))
+        const segments = pathWithoutExt.split('/')
         paths.push(segments)
       }
     })
@@ -234,8 +230,8 @@ export async function generateStaticParams() {
 // Main page component
 export default async function Page({ params }: { params: Promise<{ slug?: string[] }> }) {
   const resolvedParams = await params
-  // Decode URL segments to handle spaces and special characters
-  const slug = resolvedParams.slug?.map(segment => decodeURIComponent(segment)) || []
+  // Next.js automatically URL decodes the params, so we can use them directly
+  const slug = resolvedParams.slug || []
   
   // If no slug, show the main index (HOMEPAGE - Centered Pure Black)
   if (slug.length === 0) {
@@ -303,7 +299,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
                     <span className="text-gray-100 font-semibold">{segment.replace(/-/g, ' ')}</span>
                   ) : (
                     <Link 
-                      href={`/${slug.slice(0, index + 1).map(s => encodeURIComponent(s)).join('/')}`}
+                      href={`/${slug.slice(0, index + 1).join('/')}`}
                       className="hover:text-blue-400 transition-colors duration-300"
                     >
                       {segment.replace(/-/g, ' ')}
@@ -374,7 +370,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
                   <span className="text-gray-100 font-semibold">{segment.replace(/-/g, ' ')}</span>
                 ) : (
                   <Link 
-                    href={`/${slug.slice(0, index + 1).map(s => encodeURIComponent(s)).join('/')}`}
+                    href={`/${slug.slice(0, index + 1).join('/')}`}
                     className="hover:text-blue-400 transition-colors duration-300"
                   >
                     {segment.replace(/-/g, ' ')}

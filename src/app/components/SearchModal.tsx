@@ -62,10 +62,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   }, [query])
 
   const handleResultClick = useCallback((result: SearchResult) => {
-    // Properly encode each path segment to handle spaces and special characters
-    const pathSegments = result.path.split('/').map(segment => encodeURIComponent(segment))
-    const encodedPath = pathSegments.join('/')
-    router.push(`/${encodedPath}`)
+    // Use the path directly as Next.js handles URL encoding
+    router.push(`/${result.path}`)
     onClose()
     setQuery('')
   }, [router, onClose])
