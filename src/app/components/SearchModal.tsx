@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface SearchResult {
@@ -61,6 +61,15 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return () => clearTimeout(timer)
   }, [query])
 
+  const handleResultClick = useCallback((result: SearchResult) => {
+    // Properly encode each path segment to handle spaces and special characters
+    const pathSegments = result.path.split('/').map(segment => encodeURIComponent(segment))
+    const encodedPath = pathSegments.join('/')
+    router.push(`/${encodedPath}`)
+    onClose()
+    setQuery('')
+  }, [router, onClose])
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -89,16 +98,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, results, selectedIndex, onClose])
-
-  const handleResultClick = (result: SearchResult) => {
-    // Properly encode each path segment to handle spaces and special characters
-    const pathSegments = result.path.split('/').map(segment => encodeURIComponent(segment))
-    const encodedPath = pathSegments.join('/')
-    router.push(`/${encodedPath}`)
-    onClose()
-    setQuery('')
-  }
+  }, [isOpen, results, selectedIndex, onClose, handleResultClick])
 
   const getResultIcon = (type: string) => {
     switch (type) {

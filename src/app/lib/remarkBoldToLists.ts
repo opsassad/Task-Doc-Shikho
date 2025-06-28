@@ -1,5 +1,5 @@
 import { visit } from 'unist-util-visit'
-import type { Root, Paragraph, List, ListItem, Strong } from 'mdast'
+import type { Root, Paragraph, List, ListItem, Strong, Parent } from 'mdast'
 
 function isBoldPrefixedParagraph(node: Paragraph): boolean {
   if (!node.children || node.children.length === 0) return false
@@ -32,18 +32,18 @@ function convertParagraphToListItem(paragraph: Paragraph): ListItem {
 
 export default function remarkBoldToLists() {
   return (tree: Root) => {
-    const boldParagraphs: { node: Paragraph; parent: any; index: number }[] = []
+    const boldParagraphs: { node: Paragraph; parent: Parent; index: number }[] = []
     
     // First pass: collect all bold-prefixed paragraphs
-    visit(tree, 'paragraph', (node: Paragraph, index: number, parent: any) => {
-      if (isBoldPrefixedParagraph(node)) {
+    visit(tree, 'paragraph', (node: Paragraph, index: number | undefined, parent: Parent | undefined) => {
+      if (isBoldPrefixedParagraph(node) && typeof index === 'number' && parent) {
         boldParagraphs.push({ node, parent, index })
       }
     })
     
     // Group consecutive bold paragraphs
-    const groups: { node: Paragraph; parent: any; index: number }[][] = []
-    let currentGroup: { node: Paragraph; parent: any; index: number }[] = []
+    const groups: { node: Paragraph; parent: Parent; index: number }[][] = []
+    let currentGroup: { node: Paragraph; parent: Parent; index: number }[] = []
     
     boldParagraphs.forEach((item, i) => {
       if (i === 0 || 
