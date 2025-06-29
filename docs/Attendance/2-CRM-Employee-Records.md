@@ -1,5 +1,4 @@
-
-## 🧾 CRM Employee Records
+## CRM Employee Records
 
 ### ✅ Update Triggers
 
@@ -13,9 +12,9 @@
 
 | Column Name | Purpose | OJT Stage | Certification Stage | Recertification Stage |
 |:------------|:--------|:----------|:-------------------|:---------------------|
-| ID | Unique identifier for each employee [Given by HR after joining, or given by you before joining date] | Use a random format like B13-25-14OJT02 | Use the official employee ID from HR under certification email | Use a random format similar to OJT stage |
-| Counselor | Name of the agent | Pull from CRM Users table | No change | No change |
-| TL (Team Leader) | Assigned team leader or batch name | Use batch name like Training - B13-Jun'25 | Update with assigned TL's name from team mapping | Leave as-is if not certified, otherwise update accordingly |
+| ID | Unique identifier for each employee [Given by HR after joining, or given by you before joining date] | Use a random format like B13-25-14OJT02 | Replace with official employee ID from HR under certification email | Keep the given ID of OJT stage |
+| Counselor | Name of the agent | Pull from CRM Users table using an extension named "Instant Data Scraper"| No change | No change |
+| TL (Team Leader) | Assigned team leader or batch name [batch name in OJT] | Use batch name like Training - B13-Jun'25 | Update with assigned TL's name from team mapping | Leave as-is if not certified, otherwise update accordingly |
 | Managers | Managers responsible | Set as "Training" | Update with actual assigned manager(s) | Leave as-is if not certified, otherwise update accordingly |
 | Site | Agent's location | From OJT Email (e.g., Jessore or Dhaka) | No change | No change |
 | Assigned QA | Quality Analyst responsible | From CRM mapping | No change | No change |
@@ -25,7 +24,7 @@
 | Phone Number | Phone number of the employee | From CRM | No change | No change |
 | Training Batch | Structured batch naming for tracking | Format as 25-JUN-B13 (Year-Month-Batch) | No change | No change |
 | Training Start Date | Date when room training started | Fill from training records | No change | No change |
-| CRM ID | ID from the CRM tool (not HR ID) | From CRM | No change | No change |
+| CRM ID | ID from the CRM users tab (not HR ID) | From CRM | No change | No change |
 | Training Status | Tracks current progress/status | OJT, Not Certified, Retraining, or Discontinued | Update to Certified or appropriate status | Update to Recertification Certified, Recertification Not Certified, or Discontinued |
 | Employee "ID_Name" | Concatenated field for forms or dropdowns | Concatenate ID and Name (e.g., B13-25-14OJT02_John Doe) | Concatenate official employee ID and Name | Concatenate recertification ID and Name |
 
@@ -42,7 +41,6 @@
 | Issue | Possible Cause | Action to Take |
 |:------|:---------------|:---------------|
 | New agent missing from sheet | Not added after training or missed OJT email communication | Recheck training team's Email communication and update the missing |
-| Duplicate IDs or invalid ID format | Manual entry error or copy-paste issues | Use batch-based format for OJT and validate against HR ID for certified agents |
 | Certification not updated on time | Missed Saturday or Wednesday update | Review past certification emails and audit missing entries |
 | TL or Manager info is incorrect | Incorrect team mapping or agent hasn't been reassigned | Confirm from latest org chart or CRM team mapping records |
 | Missing Joining Date for certified agent | Forgot to update after certification | Double-check HR email or employee record |

@@ -6,11 +6,10 @@ tags: ["attendance", "hr", "tracking", "documentation"]
 
 # Maintain Attendance Tracker
 
-- **Task ID:** 1
 - **Owner:** Md Assaduzzaman
 - **Partial Task Owner:** Julkar Niem, Anusuya Ghosh, Mahizebin Shams-E-Mofiz
 - **Frequency:** Weekly (Every Saturday AM) and Monthly [Day 1]
-- **Last Reviewed:** 22-Jun-2025
+- **Last Reviewed:** 28-Jun-2025
 - **Purpose:** To provide stakeholders with Updated Attendance metrics in D-1 basis.
 
 ---
@@ -19,13 +18,14 @@ tags: ["attendance", "hr", "tracking", "documentation"]
 
 | Source Names | Source Type | URLs |
 |:-------------|:------------|:-----|
-| Attendance | Spreadsheet | Attendance [2025] |
-| [HR] Master Database for Tele-sales | Spreadsheet | HR Master Database for Tele-sales |
-| [BI] Teleseales-Retention Team Attendance Details | Spreadsheet | Teleseales-Retention Team Attendance Details |
-| [HR] Leave Application Form for Tele Sales Agents | Form | Go to Form |
-| [HR] Leave Application Form for Telesales [Response] | Spreadsheet | Leave Application Form for Telesales (Responses) |
-| [HR] Tele sales Resignation Update | Form | Go to Form |
-| [HR] Tele sales Resignation Update [Response] | Spreadsheet | [HR] Tele sales Resignation Update (Responses) |
+| Attendance | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/u/0/d/1J4rfR-v5xCYr8jZTOySYGouj4CF0LCa_m2ypNvg37Vk/edit) |
+| [HR] Master Database for Tele-sales | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/d/1f5hB6pLLeVknq8USkWFGQ4WtM2ZVHCI6Wqpfiev3wbM/edit?gid=1780614320#gid=1780614320) |
+| [BI] Teleseales-Retention Team Attendance Details | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/d/1SzfzZ2PnKitV-GH-8Oq-s5LG_CPlt_-HMatZ719rD7o/edit?gid=0#gid=0) |
+| [HR] Leave Application Form for Tele Sales Agents | Form | [Go to Form](https://docs.google.com/forms/d/10rm643hcaR5Yzb92LilNZX_VauAtJNxQwR5udBdjnic/edit#responses) |
+| [HR] Leave Application Form for Telesales [Response] | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/d/1B1TSAkP_hbJNrIXwAFosYmzjMMQ0tVb8nP1PwhlqHBw/edit?resourcekey=&gid=1644171802) |
+| [HR] Tele sales Resignation Update | Form | [Go to Form](https://docs.google.com/spreadsheets/d/1B1TSAkP_hbJNrIXwAFosYmzjMMQ0tVb8nP1PwhlqHBw/edit?resourcekey=&gid=1644171802) |
+| [HR] Tele sales Resignation Update [Response] | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/d/15uzRWKlsj4gWn64c5aKBuDAQY7BWo7btvZ-Mtx6bQdY/edit?gid=1232786506) |
+| Teleseales-Retention Team Attendance Details | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/d/1SzfzZ2PnKitV-GH-8Oq-s5LG_CPlt_-HMatZ719rD7o/edit?gid=0)
 
 ---
 

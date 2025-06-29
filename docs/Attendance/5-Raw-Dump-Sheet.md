@@ -24,7 +24,7 @@
 |:--------------|:--------|
 | Sheet Stability | Generally stable; formula-driven |
 | Max Safe Data Limit | Keep under 40,000 rows [approx] to prevent performance issues with QUERY or IMPORTRANGE |
-| Risk of Failure | High volume may cause linked sheets (like KPI, Incentive) to break or become unresponsive |
+| Risk of Failure | High volume may cause linked sheets (like KPI, Incentive) to break or become unresponsive and failure of Scripts|
 | Prevention Tip | Regularly archive old months [keep last 4 months] or use optimized QUERY filters/AppScript to limit data scope |
 
 > **📌 Reminder:** If this sheet slows down or linked reports stop updating, check data volume first before debugging formulas.

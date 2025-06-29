@@ -1,5 +1,5 @@
 
-## 🧮 BI-Data Sorted - Task Details
+## [Sheet] 🧮 BI-Data Sorted
 
 ### 🎯 Purpose
 
@@ -39,6 +39,5 @@ This sheet is already automated using formulas and logic mapping.
 
 | Issue | Cause | Action |
 |:------|:------|:-------|
-| Some agents show blank | Formulas didn't extend | Paste formulas further down |
-| Attendance looks wrong | Overwrite by manual entry or status mismatch | Check formula integrity and status overrides |
-| Slowness in sheet | Too many formula rows | Limit range, or archive old months |
+| Some agent's attendance showing blank | Formulas didn't extend | Paste formulas further down |
+| Attendance looks wrong | Probably the Case Records sheet formula has broken or Telesales leave request sheet has got some wrong status update by HR team | Check formula integrity and status, if formula of Case Records sheet looks okay, then reach HR team to verify the attendance status further form relevant source sheets |

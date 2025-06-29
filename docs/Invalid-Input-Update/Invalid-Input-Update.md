@@ -1,10 +1,13 @@
-## ✅ Task Documentation: Sales Validation (Valid / Invalid)
+## ✅ Sales Validation (Valid / Invalid)
 
 ### 🎯 Purpose
 
 To validate telesales claims by matching agent‑submitted records against daily sales data, flag invalid entries, and coordinate timely investigation and correction.
 
 add relevant sheet url as in explained earlier message
+
+---
+
 
 ---
 
@@ -64,8 +67,8 @@ Example:  `45809-1731126781-Md. Nafis Siddque-cx-inbound`
 
 ### ❌ Requests NOT Entertained by TS-BI
 
-* Claim submitted **> 2 working days after Sale Date**.
-* TL posts investigation **> 2 working days after email notification**.
+* Claim submitted **> After 'Sale Date + 1 working day'**.
+* TL posts investigation **> After 'Email Notification Date + 1 working day'**.
 
 (Reject politely and refer TL to policy.)
 
@@ -75,7 +78,7 @@ Example:  `45809-1731126781-Md. Nafis Siddque-cx-inbound`
 
 | Pitfall                             | Prevention                                            |
 | ----------------------------------- | ----------------------------------------------------- |
-| TL forgets to post in time          | Automated Slack/Email reminder 12 hrs before deadline |
+| TL forgets to post in time          | TL must ensure posting in group before deadline |
 | Mobile number formatted with spaces | Strip spaces before comparison                        |
 | Agent edits pattern manually        | Lock pattern columns; use data validation             |
 

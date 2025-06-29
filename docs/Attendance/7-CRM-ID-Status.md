@@ -22,10 +22,7 @@ To identify resigned employees, pull their leads from the CRM, deactivate their 
 
 #### 🚫 Deactivate CRM ID
 
-Either:
-- Disable the user from the CRM admin panel,
-- Or inform the tech/admin team with the deactivation list.
-- Confirm that login access and lead routing is stopped.
+- Disable the user from the CRM [Users](https://crm.shikho.com/list/user) tab 
 
 #### 📝 Update Side Table in CRM ID Status Sheet
 
@@ -33,16 +30,12 @@ Add the following details:
 
 | Employee ID | Name | Lead Pull Status | Deactivated On |
 |:------------|:-----|:-----------------|:---------------|
-| EMP1234 | John Doe | ✅ Pulled / ❌ No Leads | 28-Jun-2025 |
+| EMP1234 | John Doe | ✅ [Pulled] / ❌ [No Leads] | 28-Jun-2025 |
 
 ### ⏱️ When to Perform
 
-- **Weekly:** Every Saturday morning.
-- **Monthly Sweep:** On 1st of every month as a catch-all.
+- **Daily:** Everyday morning.
 
 ### ⚠️ Important Checks
 
-- Ensure no duplicate resignations are being handled twice.
-- Keep lead pull/export traceable (CRM screenshots or export logs).
-- Don't deactivate CRM access before lead transfer is confirmed.
-- If CRM name doesn't match exact HR name, use ID for mapping.
+- Don't deactivate CRM access before lead transfer is confirmed. Otherwise, owner name will be excluded from advanced search in https://crm.shikho.com/list/leads

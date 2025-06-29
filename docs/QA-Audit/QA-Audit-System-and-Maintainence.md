@@ -81,7 +81,7 @@ To audit telesales calls based on standard QA parameters using a simplified and 
 ### 🔁 TL Name Automation
 
 * TL list inside the form updates via **Google Form’s own Apps Script**.
-* Script name: `Update TL`
+* Script file name: `TL List Update`
 * Runs **daily (morning)**
 * Issues can occur if:
 

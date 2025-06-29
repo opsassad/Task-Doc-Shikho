@@ -1,6 +1,13 @@
 
 ## 📘 Employee Status Sheet
 
+### 🔗 Quick Access
+
+| Resource | Type | Link |
+|:---------|:-----|:-----|
+| [HR] Master Database for Tele-sales | Spreadsheet | [Go to Sheet](https://docs.google.com/spreadsheets/d/1f5hB6pLLeVknq8USkWFGQ4WtM2ZVHCI6Wqpfiev3wbM/edit?gid=1780614320#gid=1780614320) |
+
+
 ### 📋 Overview
 
 - **📌 Purpose:** The Employee Status sheet maintains centralized HR records and ensures synchronization between HR and CRM employee data.

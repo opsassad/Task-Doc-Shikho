@@ -1,6 +1,14 @@
 
 ## 📘 Case Records
 
+
+### 🔗 Quick Access
+
+| Resource | Type | Link |
+|:---------|:-----|:-----|
+| [HR] Leave Application Form for Tele Sales Agents | Form | [Go to Form](https://docs.google.com/forms/d/10rm643hcaR5Yzb92LilNZX_VauAtJNxQwR5udBdjnic/edit#responses) |
+
+
 ### 📋 Overview
 
 - **📌 Purpose:** The Case Records sheet is responsible for tracking employee resignations, holidays, and leave details. It plays a critical role in automating and updating the monthly attendance sheet named BI-Data Sorted by supplying relevant status symbols (e.g., R, H, OTD).
@@ -19,7 +27,7 @@
 | Status | Always R (Symbol for "Resigned" in attendance system) |
 
 - **Purpose:** Identifies resigned employees. Used in attendance to reflect resignation.
-- **Filter Condition:** Any row from Employee Status with non-empty "Effective Resignation Date".
+- **Filter Condition:** Any row from Employee Status with non-empty "Effective Resignation Date". It means the resignation is approved by the Managers.
 - **Note:** Only CRM agents tracked from Nov 2022 onwards are covered.
 
 #### 🟨 2. Leave Records
@@ -34,7 +42,7 @@
 | Total Leave Days | Calculated field from start to end date |
 | Leave Name (Attendance) | Symbol used in attendance sheet (e.g., SL for Sick Leave, CL for Casual Leave) |
 
-- **Source:** Imported from "Leave Application Form for Telesales" managed by HR.
+- **Source:** Imported from [Leave Application Form for Telesales](https://docs.google.com/spreadsheets/d/1f5hB6pLLeVknq8USkWFGQ4WtM2ZVHCI6Wqpfiev3wbM/edit?gid=1780614320#gid=1780614320) managed by HR.
 - **Purpose:** Sends approved leave details to attendance sheet.
 
 #### 🟩 3. Holiday Records
@@ -56,7 +64,7 @@
 
 - **Update Type:** Manually updated by HR team
 - **Applies to:** All telesales agents
-- **Note:** Indicates agents worked on official holidays with allowance entitlements
+- **Note:** Indicates agents worked on official holidays with allowance entitlements or condition applied.
 
 #### 🟫 5. General Leave/Holidays – Agent Specific
 

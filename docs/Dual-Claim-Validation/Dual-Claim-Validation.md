@@ -8,7 +8,7 @@ A sale is marked as **dual claimed** if:
 
 ---
 
-### 🚀 **Trigger: Sale Marked Invalid (Suspected Dual Claim)**
+### 🚀 **Trigger: Sale Marked Invalid due to Dual Claim**
 
 1. Agent, TL, and Manager receive an **email notification** with a link to a **document submission form**.
 
